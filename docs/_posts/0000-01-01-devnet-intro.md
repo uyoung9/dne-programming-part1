@@ -1,6 +1,6 @@
 ---
 layout: slide
-title: "Welcome to \n Cisco DevNet Express!"
+title: "Welcome to <br/> Cisco DevNet Express!"
 ---
 
 
