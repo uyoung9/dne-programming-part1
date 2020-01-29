@@ -2,32 +2,21 @@
 - hosts: datacenter-west
   gather_facts: no
   tasks:
+  # yum install epel-release
   - name: Add epel-release repo
-    yum:
-      name: epel-release
-      state: present
+  
+  # yum install nginx
   - name: Install Nginx
-    yum:
-      name: nginx
-      state: present
     notify:
     - Start Nginx
+  
+  # copy files dir to /usr/share/nginx
   - name: copy files to /usr/share/nginx/html
-    copy:
-      src: '{{item}}'
-      dest: /usr/share/nginx/html/{{item}}
-      owner: nginx
-      group: nginx
-      mode: 0644
-    with_items:
-    - index.html
-    - image.jpeg
+    
+  # sudo firewall-cmd --zone=public --permanent --add-service=http  
   - name: enable firewall
-    firewalld:
-      service: http
-      permanent: yes
-      state: enabled  
 
+  # service nginx start
   handlers:
-   - name: Start Nginx
-     service: name=nginx state=started
+  - name: Start Nginx
+  
