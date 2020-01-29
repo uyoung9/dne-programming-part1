@@ -1,0 +1,33 @@
+---
+- hosts: datacenter-west
+  gather_facts: no
+  tasks:
+  - name: Add epel-release repo
+    yum:
+      name: epel-release
+      state: present
+  - name: Install Nginx
+    yum:
+      name: nginx
+      state: present
+    notify:
+    - Start Nginx
+  - name: copy files to /usr/share/nginx/html
+    copy:
+      src: '{{item}}'
+      dest: /usr/share/nginx/html/{{item}}
+      owner: nginx
+      group: nginx
+      mode: 0644
+    with_items:
+    - index.html
+    - image.jpeg
+  - name: enable firewall
+    firewalld:
+      service: http
+      permanent: yes
+      state: enabled  
+
+  handlers:
+   - name: Start Nginx
+     service: name=nginx state=started

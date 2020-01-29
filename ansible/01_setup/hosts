@@ -1,0 +1,21 @@
+; TODO 1
+; verify ansible.cfg file
+
+; TODO 2
+; add 198.18.134.49 host into `datacenter-east` group
+
+; TODO 3
+; add 198.18.134.50 host into `datacenter-west` group
+
+; TODO 4
+; add both hosts into `dcloud-servers`
+
+; TODO 5
+; use `ping` module to check the connectivity to both hosts
+; ansible dcloud-server -m ping -i hosts
+; ansible datacenter-west -m ping -i hosts
+; ansible datacenter-east -m ping -i hosts
+
+
+; TODO 6
+; use `setup` module to get the remote host status.

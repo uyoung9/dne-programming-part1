@@ -1,0 +1,8 @@
+[dcloud-servers:children]
+datacenter-west
+
+[datacenter-east]
+198.18.134.49
+
+[datacenter-west]
+198.18.134.50
