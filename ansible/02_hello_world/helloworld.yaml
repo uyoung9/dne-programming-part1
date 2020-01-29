@@ -2,15 +2,15 @@
 - name: This is a hello-world example
   hosts: datacenter-east
   tasks:
-    - name: Create a file '/tmp/devnet.txt' in datacenter-east
-      copy:
-        content: Hello DevNet~!
-        dest: /tmp/hello.txt
+  - name: Create a file '/tmp/devnet.txt' in datacenter-east
+    copy:
+      content: Hello DevNet~!
+      dest: /tmp/hello.txt
 
 - name: This is another hello-world example
   hosts: datacenter-west
   tasks:
-    - name: Create a file '/tmp/devnet.txt' in datacenter-west
+  - name: Create a file '/tmp/devnet.txt' in datacenter-west
     copy:
       src: ./hello_devnet.txt
       dest: /tmp/hello2.txt
