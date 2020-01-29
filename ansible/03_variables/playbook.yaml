@@ -1,0 +1,11 @@
+---
+- name: set hostname
+  hosts: all
+  vars_files:
+  - /vars/host.yaml
+  tasks:
+  - name:
+    hostname:
+      name: "{{item.name}}"
+      when: "{{ansible_hostname == item.host}}"
+    with_items: "{{hostinfo}}"

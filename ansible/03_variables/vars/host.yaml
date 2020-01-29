@@ -1,0 +1,5 @@
+hostinfo:
+- host: centos1
+  name: cent01
+- host: centos2
+  name: cent02
